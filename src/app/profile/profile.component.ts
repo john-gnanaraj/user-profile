@@ -9,7 +9,8 @@ import { ProfileService } from '../services/profile.service';
 export class ProfileComponent implements OnInit {
 
   constructor(private _profileService: ProfileService) { }
-  items = [];
+
+  items:string;
 
   ngOnInit() {
     this._profileService.getUser().subscribe(data => this.items = data);

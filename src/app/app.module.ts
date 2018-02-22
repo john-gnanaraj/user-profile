@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule, HttpModule
   ],
-  providers: [],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
