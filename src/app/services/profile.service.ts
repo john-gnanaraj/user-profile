@@ -4,16 +4,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProfileService {
+  param1;
+  param2;
 
   constructor(private http: Http) { }
 
-  getUser(){
-    let data;
-    //data = this.http.get('../assets/userData.json')
-    data = this.http.get('http://10.98.20.104/trackR/index.php/userprofile?token=$1$rW.PjpFp$md/i/pjuY2ec4BftYYnHs1&uid=2')
-    .map((res:Response) => res.json());
-    console.log(data);
-    return data;
+  userToken(usrToken, uId){
+    this.param1=usrToken;
+    this.param2 = uId;
   }
 
+  getUser(){
+    return this.http.get('http://10.98.20.104/trackR/index.php/userprofile?token=' + this.param1 + '&uid=' + this.param2)
+    .map((res:Response) => res.json());
+  }
 }
